@@ -9,5 +9,13 @@ if (chute == numeroSecreto)
 }
 else
 {
-    alert('Tente outra vez!  :(');
+    if (chute < numeroSecreto)
+    {
+        alert(`O número secreto é maior que ${chute}`);
+    }
+    else
+    {
+        alert(`O número secreto é menor que ${chute}`);
+    }
 }
+
