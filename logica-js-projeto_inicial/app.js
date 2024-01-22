@@ -1,6 +1,6 @@
 alert('Boas vindas ao Jogo do Número Secreto!');
 
-let numeroSecreto = 11;
+let numeroSecreto = parseInt(Math.random() * 10);
 let chute;
 let tentativas = 1;
 
@@ -27,6 +27,7 @@ while (chute != numeroSecreto && tentativas < 4)
         if (tentativas > 3)
         {
             alert('Você excedeu o número de tentativas permitido!');
+            alert(`${numeroSecreto} era o número secreto.`);
         }
     }
 }
