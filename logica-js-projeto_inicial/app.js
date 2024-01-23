@@ -19,22 +19,17 @@ function verificarChute()
 
     if (chute == numeroSecreto)
     {
-        let mensagem = `Você descobriu o número secreto ${numeroSecreto}`;
+        let mensagem = `Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativas!`;
         exibirMensagemTela('h1', 'Parabéns!');
         exibirMensagemTela('p', mensagem);
     }
     else
     {
         if (chute < numeroSecreto)
-        {
-            let mensagem = `O número secreto é maior que ${chute}`;
-            exibirMensagemTela('p', mensagem);
-        }
+            exibirMensagemTela('p', `O número secreto é maior que ${chute}`);
         else
-        {
-            let mensagem = `O número secreto é menor que ${chute}`;
-            exibirMensagemTela('p', mensagem);
-        }
+            exibirMensagemTela('p', `O número secreto é menor que ${chute}`);
+        tentativas++;
     }
 }
 
