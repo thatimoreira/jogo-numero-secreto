@@ -1,4 +1,4 @@
-let numeroSecreto = 7; //gerarAleatorio();
+let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
 function exibirMensagemTela(tag, texto)
@@ -19,9 +19,11 @@ function verificarChute()
 
     if (chute == numeroSecreto)
     {
-        let mensagem = `Você descobriu o número secreto ${numeroSecreto} com ${tentativas} tentativas!`;
         exibirMensagemTela('h1', 'Parabéns!');
-        exibirMensagemTela('p', mensagem);
+        let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+        let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
+        exibirMensagemTela('p', mensagemTentativas);
+        document.getElementById('reiniciar').removeAttribute('disabled');
     }
     else
     {
@@ -30,7 +32,28 @@ function verificarChute()
         else
             exibirMensagemTela('p', `O número secreto é menor que ${chute}`);
         tentativas++;
+        limparCampo();
     }
+}
+
+function gerarNumeroAleatorio()
+{
+    return parseInt((Math.random() * 100) + 1);
+}
+
+function limparCampo()
+{
+    chute = document.querySelector('input');
+    chute.value = '';
+}
+
+function reiniciarJogo()
+{
+    gerarNumeroAleatorio();
+    exibirMensagemInicial();
+    limparCampo();
+    tentativas = 1;
+    getElementById('reiniciar').setAttribute('disabled', true);
 }
 
 exibirMensagemInicial();
